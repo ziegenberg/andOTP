@@ -38,9 +38,6 @@ android:
 before_install:
   - touch $HOME/.android/repositories.cfg
 
-  # Accept licenses before installing components, no need to echo y for each component
-  - yes | sdkmanager --licenses
-
 
 # Using caching as advices here: https://docs.travis-ci.com/user/languages/java/#caching
 before_cache:
