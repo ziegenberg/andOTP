@@ -69,8 +69,8 @@ dependencies {
     implementation "com.leinardi.android:speed-dial:3.1.1"
     implementation "com.mikepenz:aboutlibraries:6.2.3"
 
-    // Testing
-    // Core library
+    // Android E2E Testing
+    // Core library - Robolectric environment
     androidTestImplementation 'androidx.test:core:1.2.0'
 
     // AndroidJUnitRunner and JUnit Rules
@@ -85,4 +85,17 @@ dependencies {
     // Espresso dependencies
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.2.0'
+
+
+    // Android Unit Testing
+    // JUnit 4 framework
+    testImplementation 'junit:junit:4.12'
+
+    // Core library - Robolectric environment
+    testImplementation 'androidx.test:core:1.2.0'
+
+    // Mockito framework
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+    implementation 'org.jetbrains:annotations:15.0'
+    testImplementation 'org.testng:testng:6.9.6'
 }
