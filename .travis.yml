@@ -20,7 +20,7 @@ android:
     - 'google-gdk-license-.+'
 
 jdk:
-  - openjdk8
+  - openjdk11
 
 script: 
   - ./gradlew build
