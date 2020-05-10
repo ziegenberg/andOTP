@@ -31,12 +31,13 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 public class TokenCalculator {
+
     public static final int TOTP_DEFAULT_PERIOD = 30;
     public static final int TOTP_DEFAULT_DIGITS = 6;
     public static final int HOTP_INITIAL_COUNTER = 1;
     public static final int STEAM_DEFAULT_DIGITS = 5;
 
-    private static final char[] STEAMCHARS = new char[] {
+    private static final char[] STEAMCHARS = new char[]{
             '2', '3', '4', '5', '6', '7', '8', '9', 'B', 'C',
             'D', 'F', 'G', 'H', 'J', 'K', 'M', 'N', 'P', 'Q',
             'R', 'T', 'V', 'W', 'X', 'Y'
@@ -48,27 +49,33 @@ public class TokenCalculator {
 
     public static final HashAlgorithm DEFAULT_ALGORITHM = HashAlgorithm.SHA1;
 
-    private static byte[] generateHash(HashAlgorithm algorithm, byte[] key, byte[] data)
-            throws NoSuchAlgorithmException, InvalidKeyException {
-        String algo = "Hmac" + algorithm.toString();
-
-        Mac mac = Mac.getInstance(algo);
-        mac.init(new SecretKeySpec(key, algo));
-
-        return mac.doFinal(data);
-    }
-
-    public static int TOTP_RFC6238(byte[] secret, int period, long time, int digits, HashAlgorithm algorithm) {
-        int fullToken = TOTP(secret, period, time, algorithm);
+    /**
+     * This method generates a RFC6238 conform TOTP value for the given set of parameters.
+     *
+     * @param secret the shared secret, HEX encoded
+     * @param period a value that reflects a time
+     * @param digits number of digits to return
+     * @param algorithm the crypto function to use
+     *
+     * @return a numeric String in base 10 that includes the given number of digits
+     */
+    public static String TOTP_RFC6238(byte[] secret, int period, int digits, HashAlgorithm algorithm) {
+        int fullToken = TOTP(secret, period, System.currentTimeMillis() / 1000, algorithm);
         int div = (int) Math.pow(10, digits);
 
-        return fullToken % div;
+        return Tools.formatTokenString(fullToken % div, digits);
     }
 
-    public static String TOTP_RFC6238(byte[] secret, int period, int digits, HashAlgorithm algorithm) {
-        return Tools.formatTokenString(TOTP_RFC6238(secret, period, System.currentTimeMillis() / 1000, digits, algorithm), digits);
-    }
-
+    /**
+     * This method generates a Steam-style 5-digit alphanumeric TOTP value for the given set of parameters.
+     *
+     * @param secret the shared secret, HEX encoded
+     * @param period a value that reflects a time
+     * @param digits number of digits to return
+     * @param algorithm the crypto function to use
+     *
+     * @return a alphanumeric String in base 10 that includes the given number of digits
+     */
     public static String TOTP_Steam(byte[] secret, int period, int digits, HashAlgorithm algorithm) {
         int fullToken = TOTP(secret, period, System.currentTimeMillis() / 1000, algorithm);
 
@@ -82,6 +89,16 @@ public class TokenCalculator {
         return tokenBuilder.toString();
     }
 
+    /**
+     * This method generates a RFC4226 conform TOTP value for the given set of parameters.
+     *
+     * @param secret the shared secret, HEX encoded
+     * @param counter a value that changes on a per use basis
+     * @param digits number of digits to return
+     * @param algorithm the crypto function to use
+     *
+     * @return a numeric String in base 10 that includes the given number of digits
+     */
     public static String HOTP(byte[] secret, long counter, int digits, HashAlgorithm algorithm) {
         int fullToken = HOTP(secret, counter, algorithm);
         int div = (int) Math.pow(10, digits);
@@ -93,8 +110,7 @@ public class TokenCalculator {
         return HOTP(key, time / period, algorithm);
     }
 
-    private static int HOTP(byte[] key, long counter, HashAlgorithm algorithm)
-    {
+    private static int HOTP(byte[] key, long counter, HashAlgorithm algorithm) {
         int r = 0;
 
         try {
@@ -114,5 +130,15 @@ public class TokenCalculator {
         }
 
         return r;
+    }
+
+    private static byte[] generateHash(HashAlgorithm algorithm, byte[] key, byte[] data)
+            throws NoSuchAlgorithmException, InvalidKeyException {
+        String algo = "Hmac" + algorithm.toString();
+
+        Mac mac = Mac.getInstance(algo);
+        mac.init(new SecretKeySpec(key, algo));
+
+        return mac.doFinal(data);
     }
 }
