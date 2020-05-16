@@ -24,7 +24,7 @@
     <string name="about_label_original_author">Author of the original app</string>
     <string name="about_label_original_app">Original App</string>
     <string name="about_label_website">Website</string>
-    <string name="about_label_github" translatable="false">Github</string>
+    <string name="about_label_github" translatable="false">GitHub</string>
     <string name="about_label_donate">Donate</string>
     <string name="about_name_author1" translatable="false">Jakob Nixdorf</string>
     <string name="about_name_author_original" translatable="false">Bruno Bierbaumer</string>
@@ -53,7 +53,7 @@
     <string name="about_dialog_special_features">Are you sure you want to enable the special
         features? Most of them are non-standard OTP algorithms which were implemented on special
         request. They are <b>not officially supported</b> and can come with <b>certain
-        limitations</b>, please read (and understand) the page \"Special features\" in the Github
+        limitations</b>, please read (and understand) the page \"Special features\" in the GitHub
         wiki to learn more before using them.</string>
     <string name="about_toast_special_features">Special features enabled</string>
     <string name="about_toast_special_features_enabled">Special features already enabled</string>
