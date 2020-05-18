@@ -51,10 +51,10 @@
 
     <string name="about_title_special_features">Special features</string>
     <string name="about_dialog_special_features">Are you sure you want to enable the special
-        features? Most of them are non-standard OTP algorithms which were implemented on special
+        features of andOTP? Most of them are non-standard OTP algorithms which were implemented on special
         request. They are <b>not officially supported</b> and can come with <b>certain
         limitations</b>, please read (and understand) the page \"Special features\" in the GitHub
-        wiki to learn more before using them.</string>
+        wiki to learn more about these features before using them.</string>
     <string name="about_toast_special_features">Special features enabled</string>
     <string name="about_toast_special_features_enabled">Special features already enabled</string>
     <string name="about_toast_copied_to_clipboard">Donation link copied to clipboard</string>
