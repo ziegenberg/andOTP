@@ -1,27 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="@string/about_title_special_features" >
+        android:title="@string/about_title_special_features">
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="@string/settings_key_special_features"
-            android:title="@string/settings_title_special_features"
             android:summary="@string/settings_desc_special_features"
-            android:defaultValue="false" />
+            android:title="@string/settings_title_special_features" />
 
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="@string/settings_key_enable_screenshot"
-            android:title="@string/settings_title_enable_screenshot"
             android:summary="@string/settings_desc_enable_screenshot"
-            android:defaultValue="false" />
+            android:title="@string/settings_title_enable_screenshot" />
 
         <Preference
             android:key="@string/settings_key_clear_keystore"
-            android:title="@string/settings_title_clear_keystore"
-            android:summary="@string/settings_desc_clear_keystore" />
+            android:summary="@string/settings_desc_clear_keystore"
+            android:title="@string/settings_title_clear_keystore" />
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="@string/settings_key_cat_special_features_ntp"
+        android:title="@string/settings_category_title_ntp">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/settings_key_ntp_prefer_external_over_internal_time"
+            android:summary="@string/settings_desc_ntp_prefer_external_over_internal_time"
+            android:title="@string/settings_title_ntp_prefer_external_over_internal_time"/>
+
+        <ListPreference
+            android:defaultValue="@string/settings_default_ntp_server"
+            android:entries="@array/settings_entries_ntp_server"
+            android:entryValues="@array/settings_values_ntp_servers"
+            android:key="@string/settings_key_ntp_server"
+            android:summary="%s"
+            android:title="@string/settings_title_ntp_server"
+            android:dependency="@string/settings_key_ntp_prefer_external_over_internal_time"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/settings_key_ntp_provide_own_ntp_server"
+            android:summary="@string/settings_desc_ntp_provide_own_ntp_server"
+            android:title="@string/settings_title_ntp_provide_own_ntp_server"
+            android:dependency="@string/settings_key_ntp_prefer_external_over_internal_time"/>
+
+        <EditTextPreference
+            android:key="@string/settings_key_ntp_custom_server"
+            android:title="@string/settings_title_ntp_user_server"
+            android:summary="@string/settings_desc_ntp_user_server"
+            android:dependency="@string/settings_key_ntp_provide_own_ntp_server"/>
+
+
+    </PreferenceCategory>
 </PreferenceScreen>

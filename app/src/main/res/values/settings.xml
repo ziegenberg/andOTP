@@ -2,6 +2,7 @@
 <resources>
     <!-- Keys -->
     <string name="settings_key_cat_security" translatable="false">pref_cat_security</string>
+    <string name="settings_key_cat_special_features_ntp" translatable="false">pref_cat_special_features_ntp</string>
 
     <string name="settings_key_tap_to_reveal" translatable="false">pref_tap_to_reveal</string>  <!-- Deprecated -->
     <string name="settings_key_tap_to_reveal_timeout" translatable="false">pref_tap_to_reveal_timeout</string>
@@ -75,6 +76,12 @@
     <string name="settings_key_last_used_dialog_shown" translatable="false">pref_last_used_dialog_shown</string>
     <string name="settings_key_android21_deprecation_notice_shown" translatable="false">pref_android21_deprecation_notice_shown</string>    <!-- Deprecated -->
 
+
+    <string name="settings_key_ntp_server" translatable="false">pref_ntp_server</string>
+    <string name="settings_key_ntp_prefer_external_over_internal_time" translatable="false">pref_ntp_prefer_external_over_internal_time</string>
+    <string name="settings_key_ntp_provide_own_ntp_server" translatable="false">pref_ntp_provide_own_ntp_server</string>
+    <string name="settings_key_ntp_custom_server" translatable="false">pref_ntp_custom_server</string>
+
     <!-- Default values -->
     <integer name="settings_default_tap_to_reveal_timeout">30</integer>
     <integer name="settings_default_auth_inactivity_delay">30</integer>
@@ -91,6 +98,7 @@
     <string name="settings_default_split_group_size" translatable="false">3</string>
     <string name="settings_default_tag_functionality" translatable="false">or</string>
     <string name="settings_default_auto_backup_password_enc" translatable="false">off</string>
+    <string name="settings_default_ntp_server" translatable="false">time.nist.gov</string>
 
     <string-array name="settings_defaults_search_includes">
         <item>label</item>
@@ -250,6 +258,16 @@
         <item>日本語</item>
         <item>简体中文</item>
         <item>繁體中文</item>
+    </string-array>
+
+    <string-array name="settings_values_ntp_servers" translatable="false">
+        <item>time.nist.gov</item>
+        <item>time.google.com</item>
+        <item>time.cloudflare.com</item>
+        <item>time.windows.com</item>
+        <item>time.apple.com</item>
+        <item>ntp.ripe.net</item>
+        <item>pool.ntp.org</item>
     </string-array>
 
     <!-- Misc -->

@@ -6,6 +6,7 @@
     <string name="settings_category_title_security">Security</string>
     <string name="settings_category_title_ui">User interface</string>
     <string name="settings_category_title_backup">Backup</string>
+    <string name="settings_category_title_ntp">Time Settings</string>
 
     <!-- Titles -->
     <string name="settings_title_tap_to_reveal">Tap to reveal</string>
@@ -59,6 +60,12 @@
     <string name="settings_title_enable_screenshot">Enable screenshots</string>
     <string name="settings_title_enable_android_backup_service">Enable Android sync</string>
     <string name="settings_title_clear_keystore">Clear KeyStore</string>
+
+
+    <string name="settings_title_ntp_prefer_external_over_internal_time">Use NTP</string>
+    <string name="settings_title_ntp_provide_own_ntp_server">Provide own NTP Server</string>
+    <string name="settings_title_ntp_server">NTP Server</string>
+    <string name="settings_title_ntp_user_server">Custom NTP Server</string>
 
     <!-- Descriptions -->
     <string name="settings_desc_tap_to_reveal">Hide the OTP tokens by default, requiring them to be
@@ -121,6 +128,10 @@
     <string name="settings_desc_enable_android_backup_service">Enables andOTP to use Android\'s
         built in backup service to backup keys and preferences</string>
     <string name="settings_desc_clear_keystore">Delete the encryption key from the KeyStore</string>
+
+    <string name="settings_desc_ntp_prefer_external_over_internal_time">Prefer external time source via NTP over internal time source provided by OS.</string>
+    <string name="settings_desc_ntp_provide_own_ntp_server">Provide your own ntp server</string>
+    <string name="settings_desc_ntp_user_server">IP or hostname of the custom NTP server</string>
 
     <!-- Toasts -->
     <string name="settings_toast_auth_device_not_secure">This feature requires a secure lock screen
@@ -261,7 +272,18 @@
         <item>Plain-text backups</item>
         <item>Encrypted backups</item>
     </string-array>
-    
+
+    <string-array name="settings_entries_ntp_server">
+        <item>time.nist.gov</item>
+        <item>time.google.com</item>
+        <item>time.cloudflare.com</item>
+        <item>time.windows.com</item>
+        <item>time.apple.com</item>
+        <item>ntp.ripe.net</item>
+        <item>pool.ntp.org</item>
+
+    </string-array>
+
     <!-- Special -->
     <string name="settings_lang_sys_default">System default</string>
 
