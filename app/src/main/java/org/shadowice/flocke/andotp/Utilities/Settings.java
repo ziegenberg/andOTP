@@ -601,6 +601,14 @@ public class Settings {
         return getAutoBackupEncryptedSetting() == Constants.AutoBackup.ALL_EDITS;
     }
 
+    public String getNTPServer() {
+        return  getString(R.string.settings_key_ntp_server, R.string.settings_default_ntp_server);
+    }
+
+    public String getNTPCustomServer() {
+        return getString(R.string.settings_key_ntp_custom_server, "");
+    }
+
     public boolean isHighlightTokenOptionEnabled() {
         return getBoolean(R.string.settings_key_label_highlight_token,true);
     }
@@ -615,6 +623,14 @@ public class Settings {
 
     public boolean isFocusSearchOnStartEnabled() {
         return getBoolean(R.string.settings_key_focus_search_on_start, false);
+    }
+
+    public boolean isNTPPreferExternalTimeEnabled() {
+        return getBoolean(R.string.settings_key_ntp_prefer_external_over_internal_time, false);
+    }
+
+    public boolean isNTPCustomServerEnabled() {
+        return getBoolean(R.string.settings_key_ntp_provide_own_ntp_server, false);
     }
 
     public boolean isHideIssuerEnabled() {
@@ -650,7 +666,7 @@ public class Settings {
     public boolean getAutoUnlockAfterAutofill() {
         return getBoolean(R.string.settings_key_auto_unlock_after_autofill, false);
     }
-      
+
     public void setDefaultBackupType(Constants.BackupType type) {
         setString(R.string.settings_key_backup_default_type, type.name().toLowerCase(Locale.ENGLISH));
     }
